@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aumarin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/12 19:22:37 by aumarin          ###   ########.fr       */
+/*   Created: 2021/11/22 12:54:32 by aumarin           #+#    #+#             */
+/*   Updated: 2021/11/22 13:01:50 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	if (argc < 2)
+	if (c >= 48 && c <= 57)
 		return (1);
-	else if (!is_argv_valid(argc, argv))
-		write(STDERR, "Error\n", 6);
-	else
-		ft_printf("LETdS GO \n");
 	return (0);
 }
-
-/** 
-	Bugs :
-		- Numbers bigger than int doesnt generate an error !
-*/

@@ -1,3 +1,42 @@
-all:
-	@gcc -Wall -Wextra -Werror push_swap.c includes/*.a -o pswap
-	@echo "done"
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/05/12 19:14:40 by aumarin           #+#    #+#              #
+#    Updated: 2022/05/12 19:39:15 by aumarin          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	=	push_swap
+SRC		= 	push_swap.c \
+			includes/ft_atoi.c \
+			includes/ft_isdigit.c \
+			srcs/is_argv_valid.c \
+
+OBJ		=	$(SRC:.c=.o)
+C_FLAG	=	-Wall -Wextra -Werror
+CC		=	gcc
+
+all: $(NAME)
+
+.c.o:
+	@echo "\033[0;33mcompiling... \033[0;37m"
+	@$(CC) -o $@ -c $< $(C_FLAGS) -I .
+
+$(NAME): $(OBJ)
+	@echo "\033[0;33mlinking... \033[0;37m"	
+	@$(CC)  $(C_FLAGS) -o $@ $^ includes/libftprintf.a
+
+clean:
+	@echo "\033[0;33mdeleting objects... \033[0;37m"
+	@rm -f $(OBJ) $(BONUS_OBJ)
+	@echo "\033[0;33mdone \033[0;37m"
+
+fclean: clean
+	rm -f $(OBJ)
+	rm -f $(NAME)
+
+re: fclean all
