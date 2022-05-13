@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/12 19:10:43 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/13 16:48:16 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@
 #  define INT_MIN -2147483648
 # endif
 
+/** 
+*	STRUCTS
+*/
+typedef struct s_stack
+{
+	int				value;
+	struct s_stack	*previous;
+	struct s_stack	*next;
+}	t_stack;
+
 /**
  *	PROTOTYPES 
  */
@@ -43,14 +53,8 @@ int		ft_isdigit(int c);
 int		ft_printf(const char *str, ...);
 size_t	ft_strlen(const char *s);
 int		is_argv_valid(int argc, char **argv);
+t_stack	*init_stack(int size, char **numbers);
+void	print_stack(t_stack *lst);
 
-/** 
-*	STRUCTS
-*/
-typedef struct s_stack
-{
-	int				value;
-	struct s_stack	*next;
-}	t_stack;
 
 #endif
