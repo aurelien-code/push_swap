@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/13 18:09:18 by aumarin          ###   ########.fr       */
+/*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
+/*   Updated: 2022/05/13 18:07:59 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*swap(t_stack *head)
 {
-	t_stack	*head_a;
+	t_stack	*second;
 
-	head_a = NULL;
-	if (argc < 2)
-		return (1);
-	else if (!is_argv_valid(argc, argv))
-		write(STDERR, "Error\n", 6);
-	else
-	{
-		ft_printf("Args : ok\n");
-		head_a = init_stack(argc, argv);
-		print_stack(head_a);
-		ft_printf("--------\n");
-		head_a = swap(head_a);
-		print_stack(head_a);
-	}
-	return (0);
+	second = head->next;
+	head->next = second->next;
+	second->next = head;
+	return (second);
 }
 
-/** 
-	Bugs :
-		- Numbers bigger than int doesnt generate an error !
-*/
