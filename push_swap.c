@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/26 01:52:48 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/26 02:26:07 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,16 @@ int	main(int argc, char **argv)
 	{
 		ft_printf("Args : ok\n");
 		head_a = init_stack(argc, argv);
+		ft_printf("---INIT----\n");
 		print_stack(head_a);
-		ft_printf("--------\n");
+		ft_printf("---SWAP----\n");
 		head_a = swap(head_a);
+		print_stack(head_a);
+		ft_printf("---ROTA----\n");
+		head_a = rotate(head_a);
+		print_stack(head_a);
+		ft_printf("---ATOR----\n");
+		head_a = reverse_rotate(head_a);
 		print_stack(head_a);
 	}
 	return (0);
