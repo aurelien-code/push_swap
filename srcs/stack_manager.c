@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/18 17:08:42 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/26 01:59:47 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*init_stack(int size, char **numbers)
 	t_stack	*current;
 
 	i = 1;
-	head = NULL;
+	head = malloc(sizeof(t_stack));
 	previous = NULL;
 	current = NULL;
 	while (i < size)
@@ -40,6 +40,7 @@ t_stack	*init_stack(int size, char **numbers)
 	return (head);
 }
 
+
 void	print_stack(t_stack *head)
 {
 	int	i;
@@ -49,9 +50,9 @@ void	print_stack(t_stack *head)
 		return ;
 	while (head->next != NULL)
 	{
-		ft_printf("[%d] %d\n", i, head->value);
+		ft_printf("->	%d\n", head->value);
 		head = head->next;
 		i++;
 	}
-	ft_printf("[.] %d\n", head->value);
+	ft_printf("->	%d\n", head->value);
 }
