@@ -6,7 +6,7 @@
 #    By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 19:14:40 by aumarin           #+#    #+#              #
-#    Updated: 2022/05/26 02:12:23 by aumarin          ###   ########.fr        #
+#    Updated: 2022/05/26 02:29:36 by aumarin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC		= 	push_swap.c \
 			includes/ft_lstlast.c \
 			srcs/is_argv_valid.c \
 			srcs/stack_manager.c \
-			srcs/moves.c
+			srcs/moves.c \
+			srcs/sort.c
 
 OBJ		=	$(SRC:.c=.o)
 C_FLAG	=	-Wall -Wextra -Werror

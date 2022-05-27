@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/26 02:26:07 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 01:22:20 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*head_a;
+	t_stack *head_b;
 
+	head_b = NULL;
 	head_a = NULL;
 	if (argc < 2)
 		return (1);
@@ -25,17 +27,19 @@ int	main(int argc, char **argv)
 	{
 		ft_printf("Args : ok\n");
 		head_a = init_stack(argc, argv);
+		head_b = malloc(sizeof(t_stack));
+		if (!head_b)
+			return (1);
 		ft_printf("---INIT----\n");
 		print_stack(head_a);
-		ft_printf("---SWAP----\n");
-		head_a = swap(head_a);
+		ft_printf("---PUSH----\n");
+		push(head_a, head_b);
+		push(head_a, head_b);
+		push(head_a, head_b);
+		push(head_a, head_b);
 		print_stack(head_a);
-		ft_printf("---ROTA----\n");
-		head_a = rotate(head_a);
-		print_stack(head_a);
-		ft_printf("---ATOR----\n");
-		head_a = reverse_rotate(head_a);
-		print_stack(head_a);
+		ft_printf("...\n");
+		//print_stack(head_b);
 	}
 	return (0);
 }
@@ -43,4 +47,5 @@ int	main(int argc, char **argv)
 /** 
 	Bugs :
 		- Numbers bigger than int doesnt generate an error !
+		- push generate a segfault if stack is empty after push !
 */
