@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/26 23:55:07 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:35:46 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void	print_stack(t_stack *head)
 		head = head->next;
 		i++;
 	}
-	ft_printf("->	%d\n", head->value);
+	if (head->value)
+		ft_printf("->	%d\n", head->value);
 }

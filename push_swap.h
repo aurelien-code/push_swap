@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/26 02:36:28 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:03:32 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,13 @@ int		ft_isdigit(int c);
 int		ft_printf(const char *str, ...);
 size_t	ft_strlen(const char *s);
 t_stack	*ft_lstlast(t_stack *lst);
+int		ft_lstsize(t_stack *lst);
 int		is_argv_valid(int argc, char **argv);
 t_stack	*init_stack(int size, char **numbers);
 void	print_stack(t_stack *lst);
 t_stack	*swap(t_stack *head);
 t_stack	*rotate(t_stack *head);
 t_stack	*reverse_rotate(t_stack *head);
-t_stack	*push(t_stack *origin, t_stack *dest);
+t_stack	*push(t_stack **origin, t_stack **dest);
 
 #endif

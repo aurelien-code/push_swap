@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 01:22:20 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:36:02 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@ int	main(int argc, char **argv)
 		head_b = malloc(sizeof(t_stack));
 		if (!head_b)
 			return (1);
+		head_b->next = NULL;
 		ft_printf("---INIT----\n");
 		print_stack(head_a);
 		ft_printf("---PUSH----\n");
-		push(head_a, head_b);
-		push(head_a, head_b);
-		push(head_a, head_b);
-		push(head_a, head_b);
+		push(&head_a, &head_b);
+		push(&head_a, &head_b);
+		push(&head_a, &head_b);
+		push(&head_a, &head_b);
 		print_stack(head_a);
 		ft_printf("...\n");
-		//print_stack(head_b);
+		print_stack(head_b);
 	}
 	return (0);
 }
