@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 15:36:02 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:38:35 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*head_a;
-	t_stack *head_b;
+	t_stack	*head_b;
 
 	head_b = NULL;
 	head_a = NULL;
@@ -33,14 +33,6 @@ int	main(int argc, char **argv)
 		head_b->next = NULL;
 		ft_printf("---INIT----\n");
 		print_stack(head_a);
-		ft_printf("---PUSH----\n");
-		push(&head_a, &head_b);
-		push(&head_a, &head_b);
-		push(&head_a, &head_b);
-		push(&head_a, &head_b);
-		print_stack(head_a);
-		ft_printf("...\n");
-		print_stack(head_b);
 	}
 	return (0);
 }
@@ -48,5 +40,4 @@ int	main(int argc, char **argv)
 /** 
 	Bugs :
 		- Numbers bigger than int doesnt generate an error !
-		- push generate a segfault if stack is empty after push !
 */
