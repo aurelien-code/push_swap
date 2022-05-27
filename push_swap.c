@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 15:38:35 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 16:24:12 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 		head_b->next = NULL;
 		ft_printf("---INIT----\n");
 		print_stack(head_a);
+		ft_printf("...\n");
+		ft_printf("is_stack_storted : %d\n", is_stack_sorted(head_a));
 	}
 	return (0);
 }
