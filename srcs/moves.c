@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 15:35:26 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:36:28 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,3 @@ t_stack	*push(t_stack **origin, t_stack **dest)
 		*origin = NULL;
 	return (*dest);
 }
-
-
-/* PROBLEMS :
-	CRITIK :	dest = dest->next donc boucle infinie 
-*/
