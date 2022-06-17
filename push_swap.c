@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 16:24:12 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/06/17 16:11:01 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,14 @@ int	main(int argc, char **argv)
 		write(STDERR, "Error\n", 6);
 	else
 	{
-		ft_printf("Args : ok\n");
 		head_a = init_stack(argc, argv);
 		head_b = malloc(sizeof(t_stack));
 		if (!head_b)
 			return (1);
 		head_b->next = NULL;
-		ft_printf("---INIT----\n");
-		print_stack(head_a);
-		ft_printf("...\n");
-		ft_printf("is_stack_storted : %d\n", is_stack_sorted(head_a));
+		if (ft_lstsize(head_a) < 6)
+			sort_small_stack(head_a, head_b);
+		ft_printf("is_stack_storted : %d\n", is_stack_sorted(head_b));
 	}
 	return (0);
 }

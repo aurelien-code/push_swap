@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 15:35:46 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/06/02 17:32:46 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_stack	*init_stack(int size, char **numbers)
 	}
 	return (head);
 }
-
 
 void	print_stack(t_stack *head)
 {

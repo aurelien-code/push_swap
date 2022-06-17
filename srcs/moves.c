@@ -6,19 +6,20 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 15:36:28 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/06/17 16:18:46 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*swap(t_stack *head)
+t_stack	*swap(t_stack *head, char move)
 {
 	t_stack	*second;
 
 	second = head->next;
 	head->next = second->next;
 	second->next = head;
+	ft_printf("s%c\n", move);
 	return (second);
 }
 
@@ -46,7 +47,7 @@ t_stack	*reverse_rotate(t_stack *head)
 	return (last);
 }
 
-t_stack	*push(t_stack **origin, t_stack **dest)
+t_stack	*push(t_stack **origin, t_stack **dest, char move)
 {
 	t_stack	*tmp;
 
@@ -63,5 +64,6 @@ t_stack	*push(t_stack **origin, t_stack **dest)
 		*origin = origin[0]->next;
 	else
 		*origin = NULL;
+	ft_printf("p%c\n", move);
 	return (*dest);
 }
