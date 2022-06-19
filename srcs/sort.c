@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/06/17 16:47:18 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/06/19 11:47:25 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,46 @@ void	sort_small_stack(t_stack *stack, t_stack *stack_b)
 {
 	if (!stack)
 		return ;
-	while (stack->next)
+	push(&stack, &stack_b, 'b');
+	push(&stack, &stack_b, 'b');
+	while (!is_stack_sorted(stack))
 	{
 		if (stack->value > stack->next->value)
-			push(&stack, &stack_b, 'a');
-		else if (stack->value == stack->next->value)
-			push(&stack, &stack_b, 'a');
+		{
+			if (stack->value > stack->next->next->value)
+			{
+				stack = swap(stack, 'a');
+				stack = reverse_rotate(stack);
+				ft_printf("rra\n");
+			}
+			else if (stack->value < stack->next->next->value)
+				stack = swap(stack, 'a');
+			else
+			{
+				stack = rotate(stack);
+				ft_printf("ra\n");
+			}
+		}
 		else
-			stack = swap(stack, 'a');
+		{
+			if (stack->value > stack->next->next->value)
+			{
+				stack = reverse_rotate(stack);
+				ft_printf("rra\n");
+			}
+			else
+			{
+				stack = swap(stack, 'a');
+				stack = rotate(stack);
+				ft_printf("ra\n");
+			}
+		}
+		if (is_stack_sorted(stack))
+		{
+			push(&stack_b, &stack, 'a');
+			stack = rotate(stack);
+			ft_printf("ra\n");
+		}
 	}
-	push(&stack, &stack_b, 'a');
+	push(&stack_b, &stack, 'a');
 }
