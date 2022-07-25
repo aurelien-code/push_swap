@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 17:00:33 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/07/25 17:53:01 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_stack_sorted(t_stack *stack)
 	return (1);
 }
 
-void	sort_small_stack(t_stack *stack_a, t_stack *stack_b)
+void	sort_small_stack(t_stack *stack_a)
 {
 	if (is_stack_sorted(stack_a))
 		return ;
