@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/06/19 11:47:25 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/07/25 17:00:33 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,50 +23,30 @@ int	is_stack_sorted(t_stack *stack)
 	return (1);
 }
 
-void	sort_small_stack(t_stack *stack, t_stack *stack_b)
+void	sort_small_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	if (!stack)
+	if (is_stack_sorted(stack_a))
 		return ;
-	push(&stack, &stack_b, 'b');
-	push(&stack, &stack_b, 'b');
-	while (!is_stack_sorted(stack))
+	if (stack_a->value > stack_a->next->value)
 	{
-		if (stack->value > stack->next->value)
+		if (stack_a->next->value > ft_lstlast(stack_a)->value)
 		{
-			if (stack->value > stack->next->next->value)
-			{
-				stack = swap(stack, 'a');
-				stack = reverse_rotate(stack);
-				ft_printf("rra\n");
-			}
-			else if (stack->value < stack->next->next->value)
-				stack = swap(stack, 'a');
-			else
-			{
-				stack = rotate(stack);
-				ft_printf("ra\n");
-			}
+			swap(&stack_a, 'a');
+			reverse_rotate(&stack_a, 'a');
 		}
+		else if (stack_a->value > ft_lstlast(stack_a)->value)
+			rotate(&stack_a, 'a');
+		else
+			swap(&stack_a, 'a');
+	}
+	else
+	{
+		if (stack_a->value > ft_lstlast(stack_a)->value)
+			reverse_rotate(&stack_a, 'a');
 		else
 		{
-			if (stack->value > stack->next->next->value)
-			{
-				stack = reverse_rotate(stack);
-				ft_printf("rra\n");
-			}
-			else
-			{
-				stack = swap(stack, 'a');
-				stack = rotate(stack);
-				ft_printf("ra\n");
-			}
-		}
-		if (is_stack_sorted(stack))
-		{
-			push(&stack_b, &stack, 'a');
-			stack = rotate(stack);
-			ft_printf("ra\n");
+			swap(&stack_a, 'a');
+			rotate(&stack_a, 'a');
 		}
 	}
-	push(&stack_b, &stack, 'a');
 }

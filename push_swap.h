@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 15:53:06 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/07/25 15:56:59 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ int		is_argv_valid(int argc, char **argv);
 t_stack	*init_stack(int size, char **numbers);
 void	print_stack(t_stack *lst);
 int		is_stack_sorted(t_stack *stack);
-void	sort_small_stack(t_stack *stack, t_stack *stack_b);
 
 void	swap(t_stack **stack, char move);
 void	rotate(t_stack	**stack, char move);
 void	reverse_rotate(t_stack **stack, char move);
 void	push(t_stack **origin, t_stack **dest, char move);
+
+void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 
 #endif
