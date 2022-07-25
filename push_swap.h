@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 17:53:07 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/07/25 17:54:48 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	reverse_rotate(t_stack **stack, char move);
 void	push(t_stack **origin, t_stack **dest, char move);
 
 void	sort_small_stack(t_stack *stack_a);
+void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b);
 
 #endif

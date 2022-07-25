@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 17:53:11 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/07/25 17:55:43 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 	else
 	{
 		head_a = init_stack(argc, argv);
+		if (is_stack_sorted(head_a))
+			return (0);
 		head_b = malloc(sizeof(t_stack));
 		if (!head_b)
 			return (1);
