@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/26 19:14:44 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/07/28 16:53:38 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,14 @@ int	is_top_minimum(t_stack *stack)
 {
 	int	min;
 
-	min = stack->value;
-	while (stack->next)
+	min = (stack)->value;
+	while ((stack)->next)
 	{
-		if (min > stack->value)
+		if (min > (stack)->value)
 			return (0);
 		else
-			stack = stack->next;
+			stack = (stack)->next;
 	}
-	ft_printf("MINIMUM -> %d\n", min);
 	return (1);
 }
 
@@ -75,12 +74,11 @@ void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 		else
 			reverse_rotate(&stack_a, 'a');
 	}
-	ft_printf("STACKB\n");
-	print_stack(stack_b);
 	stack_a = sort_small_stack(stack_a);
 	while (ft_lstsize(stack_b) > 1)
 	{
 		push(&stack_b, &stack_a, 'a');
+		if (stack_a->value > stack_a->next->value)
+			swap(&stack_a, 'a');
 	}
-	print_stack(stack_a);
 }
