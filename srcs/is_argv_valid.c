@@ -12,6 +12,26 @@
 
 #include "push_swap.h"
 
+int	check_duplicate(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (i < argc)
+	{
+		while (i + j < argc)
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[i + j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int	is_argv_valid(int argc, char **argv)
 {
 	size_t	i;
@@ -33,5 +53,7 @@ int	is_argv_valid(int argc, char **argv)
 		}
 		i++;
 	}
+	if (!check_duplicate(argc, argv))
+		return (0);
 	return (1);
 }
