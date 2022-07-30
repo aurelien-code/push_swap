@@ -18,7 +18,7 @@ int	check_duplicate(int argc, char **argv)
 	int	j;
 
 	i = 1;
-	j = 0;
+	j = 1;
 	while (i < argc)
 	{
 		while (i + j < argc)
