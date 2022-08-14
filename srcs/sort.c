@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/08/14 16:54:35 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/14 17:12:09 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_stack	*sort_small_stack(t_stack *stack_a)
 {
+	if (is_stack_sorted(stack_a))
+		return (stack_a);
 	if (stack_a->value > stack_a->next->value)
 	{
 		if (stack_a->next->value > ft_lstlast(stack_a)->value)
@@ -59,8 +61,7 @@ void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 				rotate(&stack_a, 'a');
 		}
 	}
-	if (ft_lstsize(stack_a) == 3 && !is_stack_sorted(stack_a))
-		stack_a = sort_small_stack(stack_a);
+	stack_a = sort_small_stack(stack_a);
 	while (ft_lstsize(stack_b) > 1)
 	{
 		push(&stack_b, &stack_a, 'a');
