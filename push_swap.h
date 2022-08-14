@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 23:54:57 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:54:31 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,31 @@ typedef struct s_stack
 /**
  *	PROTOTYPES 
  */
+
+/**	Includes (libft)	*/
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_printf(const char *str, ...);
 size_t	ft_strlen(const char *s);
 t_stack	*ft_lstlast(t_stack *lst);
 int		ft_lstsize(t_stack *lst);
+
+/**	srcs	*/
 int		is_argv_valid(int argc, char **argv);
 t_stack	*init_stack(int size, char **numbers);
 void	print_stack(t_stack *lst);
 int		is_stack_sorted(t_stack *stack);
+int		find_minimum(t_stack *stack);
+int		find_minimum_index(t_stack *stack);
+int		is_stack_sorted(t_stack *stack);
 
+/**	moves	*/
 void	swap(t_stack **stack, char move);
 void	rotate(t_stack	**stack, char move);
 void	reverse_rotate(t_stack **stack, char move);
 void	push(t_stack **origin, t_stack **dest, char move);
 
+/**	sort	*/
 t_stack	*sort_small_stack(t_stack *stack_a);
 void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b);
 

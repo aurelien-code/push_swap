@@ -6,22 +6,11 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/28 16:53:38 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:54:35 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_stack_sorted(t_stack *stack)
-{
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
 
 t_stack	*sort_small_stack(t_stack *stack_a)
 {
@@ -50,31 +39,28 @@ t_stack	*sort_small_stack(t_stack *stack_a)
 	return (stack_a);
 }
 
-int	is_top_minimum(t_stack *stack)
+void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	int	min;
 
-	min = (stack)->value;
-	while ((stack)->next)
-	{
-		if (min > (stack)->value)
-			return (0);
-		else
-			stack = (stack)->next;
-	}
-	return (1);
-}
-
-void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
-{
+	min = find_minimum(stack_a);
 	while (ft_lstsize(stack_a) > 3)
 	{
-		if (is_top_minimum(stack_a))
+		if (min == stack_a->value)
+		{
 			push(&stack_a, &stack_b, 'b');
+			min = find_minimum(stack_a);
+		}
 		else
-			reverse_rotate(&stack_a, 'a');
+		{
+			if (find_minimum_index(stack_a) > 3)
+				reverse_rotate(&stack_a, 'a');
+			else
+				rotate(&stack_a, 'a');
+		}
 	}
-	stack_a = sort_small_stack(stack_a);
+	if (ft_lstsize(stack_a) == 3 && !is_stack_sorted(stack_a))
+		stack_a = sort_small_stack(stack_a);
 	while (ft_lstsize(stack_b) > 1)
 	{
 		push(&stack_b, &stack_a, 'a');

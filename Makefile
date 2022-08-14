@@ -6,7 +6,7 @@
 #    By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 19:14:40 by aumarin           #+#    #+#              #
-#    Updated: 2022/05/27 10:54:20 by aumarin          ###   ########.fr        #
+#    Updated: 2022/08/14 16:54:41 by aumarin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ SRC		= 	push_swap.c \
 			includes/ft_isdigit.c \
 			includes/ft_lstlast.c \
 			includes/ft_lstsize.c \
-			srcs/is_argv_valid.c \
+			srcs/checker.c \
 			srcs/stack_manager.c \
 			srcs/moves.c \
-			srcs/sort.c
+			srcs/sort.c \
+			srcs/find_actions.c
 
 OBJ		=	$(SRC:.c=.o)
 C_FLAG	=	-Wall -Wextra -Werror

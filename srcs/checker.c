@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_argv_valid.c                                    :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:10:07 by aumarin           #+#    #+#             */
-/*   Updated: 2022/06/02 17:32:34 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/14 16:54:14 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,16 @@ int	is_argv_valid(int argc, char **argv)
 	}
 	if (!check_duplicate(argc, argv))
 		return (0);
+	return (1);
+}
+
+int	is_stack_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
 	return (1);
 }
