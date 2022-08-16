@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 23:19:04 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/16 16:15:44 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	push(t_stack **origin, t_stack **dest, char move)
 	tmp = malloc(sizeof(t_stack));
 	if (!tmp)
 		return ;
-	tmp->value = origin[0]->value;
+	tmp->value = (*origin)->value;
 	if (*dest)
 		tmp->next = *dest;
 	else
 		tmp->next = NULL;
 	*dest = tmp;
-	if (origin[0]->next != NULL)
-		*origin = origin[0]->next;
+	if ((*origin)->next != NULL)
+		*origin = (*origin)->next;
 	else
 		*origin = NULL;
 	ft_printf("p%c\n", move);
