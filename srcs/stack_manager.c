@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2022/06/02 17:32:46 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/17 16:02:59 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*init_stack(int size, char **numbers)
 	t_stack	*current;
 
 	i = 1;
-	head = malloc(sizeof(t_stack));
+	head = NULL;
 	previous = NULL;
 	current = NULL;
 	while (i < size)

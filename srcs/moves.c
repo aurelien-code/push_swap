@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/08/16 16:15:44 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/17 16:13:57 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 void	swap(t_stack **stack, char move)
 {
 	t_stack	*tmp;
+	t_stack	*tmp2;
 
 	tmp = malloc(sizeof(t_stack));
 	if (!tmp)
 		return ;
 	tmp->value = (*stack)->value;
 	tmp->next = (*stack)->next->next;
+	tmp2 = *stack;
 	*stack = (*stack)->next;
 	(*stack)->next = tmp;
+	free(tmp2);
 	ft_printf("s%c\n", move);
 }
 
@@ -66,7 +69,11 @@ void	push(t_stack **origin, t_stack **dest, char move)
 		tmp->next = NULL;
 	*dest = tmp;
 	if ((*origin)->next != NULL)
-		*origin = (*origin)->next;
+	{
+		tmp = (*origin)->next;
+		free(*origin);
+		*origin = tmp;
+	}
 	else
 		*origin = NULL;
 	ft_printf("p%c\n", move);

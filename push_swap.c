@@ -6,11 +6,24 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/07/25 23:56:05 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/08/17 15:59:47 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while ((*stack)->next)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
+	free(*(&stack));
+}
 
 int	main(int argc, char **argv)
 {
@@ -36,11 +49,7 @@ int	main(int argc, char **argv)
 			sort_small_stack(head_a);
 		else if (ft_lstsize(head_a) < 6)
 			sort_medium_stack(head_a, head_b);
+		free_stack(&head_a);
 	}
 	return (0);
 }
-
-/** 
-	Bugs :
-		- Numbers bigger than int doesnt generate an error !
-*/
