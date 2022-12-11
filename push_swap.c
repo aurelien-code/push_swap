@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/08/17 15:59:47 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/10 18:45:26 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	main(int argc, char **argv)
 		if (!head_b)
 			return (1);
 		head_b->next = NULL;
-		if (ft_lstsize(head_a) < 4)
+		if (stack_size(head_a) < 4)
 			sort_small_stack(head_a);
-		else if (ft_lstsize(head_a) < 6)
+		else if (stack_size(head_a) < 6)
 			sort_medium_stack(head_a, head_b);
 		free_stack(&head_a);
 	}

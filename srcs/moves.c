@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/08/17 16:13:57 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/10 18:43:51 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rotate(t_stack	**stack, char move)
 	t_stack	*last;
 	t_stack	*second;
 
-	last = ft_lstlast(*stack);
+	last = stack_last(*stack);
 	second = (*stack)->next;
 	(*stack)->next = NULL;
 	last->next = *stack;
@@ -46,7 +46,7 @@ void	reverse_rotate(t_stack **stack, char move)
 {
 	t_stack	*last;
 
-	last = ft_lstlast(*stack);
+	last = stack_last(*stack);
 	last->next = *stack;
 	while ((*stack)->next != last)
 		*stack = (*stack)->next;

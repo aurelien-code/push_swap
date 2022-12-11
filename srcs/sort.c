@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/08/17 16:14:35 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/10 18:43:51 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ t_stack	*sort_small_stack(t_stack *stack_a)
 		return (stack_a);
 	if (stack_a->value > stack_a->next->value)
 	{
-		if (stack_a->next->value > ft_lstlast(stack_a)->value)
+		if (stack_a->next->value > stack_last(stack_a)->value)
 		{
 			swap(&stack_a, 'a');
 			reverse_rotate(&stack_a, 'a');
 		}
-		else if (stack_a->value > ft_lstlast(stack_a)->value)
+		else if (stack_a->value > stack_last(stack_a)->value)
 			rotate(&stack_a, 'a');
 		else
 			swap(&stack_a, 'a');
 	}
 	else
 	{
-		if (stack_a->value > ft_lstlast(stack_a)->value)
+		if (stack_a->value > stack_last(stack_a)->value)
 			reverse_rotate(&stack_a, 'a');
 		else
 		{
@@ -46,7 +46,7 @@ void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 	int	min;
 
 	min = find_minimum(stack_a);
-	while (ft_lstsize(stack_a) > 3)
+	while (stack_size(stack_a) > 3)
 	{
 		if (min == stack_a->value)
 		{
@@ -62,7 +62,7 @@ void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 		}
 	}
 	stack_a = sort_small_stack(stack_a);
-	while (ft_lstsize(stack_b) > 1)
+	while (stack_size(stack_b) > 1)
 	{
 		push(&stack_b, &stack_a, 'a');
 		if (stack_a->value > stack_a->next->value)

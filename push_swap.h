@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/08/17 15:47:56 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/10 18:44:18 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "./libft/libft.h"
+# include "./ft_printf/ft_printf.h"
 /**
  *	DEFINITIONS
  */
@@ -49,14 +51,6 @@ typedef struct s_stack
  *	PROTOTYPES 
  */
 
-/**	Includes (libft)	*/
-int		ft_atoi(const char *str);
-int		ft_isdigit(int c);
-int		ft_printf(const char *str, ...);
-size_t	ft_strlen(const char *s);
-t_stack	*ft_lstlast(t_stack *lst);
-int		ft_lstsize(t_stack *lst);
-
 /**	srcs	*/
 int		is_argv_valid(int argc, char **argv);
 t_stack	*init_stack(int size, char **numbers);
@@ -75,5 +69,8 @@ void	push(t_stack **origin, t_stack **dest, char move);
 /**	sort	*/
 t_stack	*sort_small_stack(t_stack *stack_a);
 void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b);
+
+int		stack_size(t_stack *lst);
+t_stack *stack_last(t_stack *lst);
 
 #endif

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ll_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 10:53:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/05/27 11:33:10 by aumarin          ###   ########.fr       */
+/*   Created: 2022/12/10 18:40:11 by aumarin           #+#    #+#             */
+/*   Updated: 2022/12/10 18:44:14 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+t_stack *stack_last(t_stack *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+int	stack_size(t_stack *lst)
 {
 	int	i;
 
