@@ -6,13 +6,13 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 18:40:11 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/10 18:44:14 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/14 12:10:04 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_last(t_stack *lst)
+t_stack	*stack_last(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);

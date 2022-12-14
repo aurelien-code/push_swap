@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 02:07:27 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/14 12:07:11 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/14 12:09:44 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	check_int_limits(char *num)
 		return (1);
 }
 
-int check_args(int argc, char **argv)
+int	check_args(int argc, char **argv)
 {
-    size_t	i;
+	size_t	i;
 	int		j;
 
 	i = 1;
