@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/10 18:44:18 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/12 03:27:27 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,15 @@
 
 # ifndef INT_MAX
 #  define INT_MAX 2147483647
+#  define INT_MAX_STR "2147483647"
 # endif
 
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
+#  define INT_MIN_STR "-2147483648"
 # endif
+
+# define ERROR_MSG "Error\n"
 
 /** 
 *	STRUCTS

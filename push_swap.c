@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/10 18:45:26 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/12 02:25:11 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	else if (!is_argv_valid(argc, argv))
-		write(STDERR, "Error\n", 6);
+		ft_putstr_fd(ERROR_MSG, STDERR);
 	else
 	{
 		head_a = init_stack(argc, argv);

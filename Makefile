@@ -6,7 +6,7 @@
 #    By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 19:14:40 by aumarin           #+#    #+#              #
-#    Updated: 2022/12/10 18:58:40 by aumarin          ###   ########.fr        #
+#    Updated: 2022/12/12 02:08:14 by aumarin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC		= 	push_swap.c \
 			srcs/moves.c \
 			srcs/sort.c \
 			srcs/find_actions.c \
-			srcs/ll_utils.c
+			srcs/ll_utils.c \
+			srcs/parser.c
 
 OBJ		=	$(SRC:.c=.o)
 C_FLAG	=	-Wall -Wextra -Werror
