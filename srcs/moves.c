@@ -6,12 +6,16 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/10 18:43:51 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/14 16:18:26 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	Swap the first 2 elements at the top of stack.
+	Do nothing if there is only one or no elements
+*/
 void	swap(t_stack **stack, char move)
 {
 	t_stack	*tmp;

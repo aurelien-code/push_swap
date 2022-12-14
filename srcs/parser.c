@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 02:07:27 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/14 12:09:44 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/14 16:33:00 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_args(int argc, char **argv)
 	size_t	i;
 	int		j;
 
-	i = 1;
+	i = 0;
 	while (i < (size_t)argc)
 	{
 		j = 0;
@@ -78,6 +78,7 @@ int	is_argv_valid(int argc, char **argv)
 	args_count = 1;
 	if (argc == 2)
 	{
+		args_count = 0;
 		splitted = ft_split(argv[1], ' ');
 		if (!splitted)
 			return (0);
@@ -92,5 +93,5 @@ int	is_argv_valid(int argc, char **argv)
 		return (result);
 	}
 	else
-		return (check_args(argc, argv));
+		return (check_args(argc, argv + 1));
 }
