@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/14 16:04:08 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/20 09:56:56 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,19 @@ t_stack	*new_stack_elem(t_stack *head, int value)
 	return (elem);
 }
 
+void	free_split(char **splitted)
+{
+	int	i;
+
+	i = -1;
+	while (splitted[++i])
+		free(splitted[i]);
+	if (splitted[i])
+		free(splitted[i]);
+	if (splitted)
+		free(splitted);
+}
+
 t_stack	*init_stack(int argc, char **argv)
 {
 	char	**splitted;
@@ -50,11 +63,8 @@ t_stack	*init_stack(int argc, char **argv)
 		if (!head)
 			head = stack;
 	}
-	i = -1;
-	while (argc == 2 && splitted[++i])
-		free(splitted[i]);
-	free(splitted[i]);
-	free(splitted);
+	if (argc == 2)
+		free_split(splitted);
 	return (head);
 }
 

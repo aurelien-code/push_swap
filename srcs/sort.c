@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/10 18:43:51 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/20 14:44:34 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_stack	*sort_small_stack(t_stack *stack_a)
 	return (stack_a);
 }
 
-void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
+t_stack	*sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	int	min;
 
@@ -53,13 +53,10 @@ void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 			push(&stack_a, &stack_b, 'b');
 			min = find_minimum(stack_a);
 		}
+		else if (find_minimum_index(stack_a) > 3)
+			reverse_rotate(&stack_a, 'a');
 		else
-		{
-			if (find_minimum_index(stack_a) > 3)
-				reverse_rotate(&stack_a, 'a');
-			else
-				rotate(&stack_a, 'a');
-		}
+			rotate(&stack_a, 'a');
 	}
 	stack_a = sort_small_stack(stack_a);
 	while (stack_size(stack_b) > 1)
@@ -68,4 +65,5 @@ void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 		if (stack_a->value > stack_a->next->value)
 			swap(&stack_a, 'a');
 	}
+	return (stack_a);
 }

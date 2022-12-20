@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/14 12:09:53 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/20 14:39:42 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	push(t_stack **origin, t_stack **dest, char move);
 
 /**	sort	*/
 t_stack	*sort_small_stack(t_stack *stack_a);
-void	sort_medium_stack(t_stack *stack_a, t_stack *stack_b);
+t_stack	*sort_medium_stack(t_stack *stack_a, t_stack *stack_b);
 
 int		stack_size(t_stack *lst);
 t_stack	*stack_last(t_stack *lst);

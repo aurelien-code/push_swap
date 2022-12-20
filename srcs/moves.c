@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/14 16:18:26 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/20 14:38:55 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,13 @@
 */
 void	swap(t_stack **stack, char move)
 {
-	t_stack	*tmp;
-	t_stack	*tmp2;
+	int	tmp;
 
-	tmp = malloc(sizeof(t_stack));
-	if (!tmp)
+	if (!*stack || !(*stack)->next)
 		return ;
-	tmp->value = (*stack)->value;
-	tmp->next = (*stack)->next->next;
-	tmp2 = *stack;
-	*stack = (*stack)->next;
-	(*stack)->next = tmp;
-	free(tmp2);
+	tmp = (*stack)->value;
+	(*stack)->value = (*stack)->next->value;
+	(*stack)->next->value = tmp;
 	ft_printf("s%c\n", move);
 }
 
@@ -41,6 +36,8 @@ void	rotate(t_stack	**stack, char move)
 	last = stack_last(*stack);
 	second = (*stack)->next;
 	(*stack)->next = NULL;
+	(*stack)->previous = last;
+	second->previous = NULL;
 	last->next = *stack;
 	(*stack) = second;
 	ft_printf("r%c\n", move);
@@ -63,12 +60,15 @@ void	push(t_stack **origin, t_stack **dest, char move)
 {
 	t_stack	*tmp;
 
-	tmp = malloc(sizeof(t_stack));
+	tmp = ft_calloc(1, sizeof(t_stack));
 	if (!tmp)
 		return ;
 	tmp->value = (*origin)->value;
 	if (*dest)
+	{
 		tmp->next = *dest;
+		(*dest)->previous = tmp;
+	}
 	else
 		tmp->next = NULL;
 	*dest = tmp;
