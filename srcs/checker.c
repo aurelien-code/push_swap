@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:10:07 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/12 02:08:01 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 12:57:33 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	is_stack_sorted(t_stack *stack)
 {
-	while (stack->next)
+	while (stack)
 	{
-		if (stack->value > stack->next->value)
+		if (stack->next && stack->value > stack->next->value)
 			return (0);
 		stack = stack->next;
 	}
