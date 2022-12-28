@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/27 21:50:27 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 02:09:45 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ typedef struct s_stack
 
 typedef struct s_chunk
 {
-	int	value;
-	int	r_moves;
-	int	rr_moves;			
+	int				value;
+	int				r_moves;
+	int				rr_moves;
+	struct s_chunk	*next;
 }	t_chunk;
 
 /**
@@ -86,5 +87,11 @@ int		stack_size(t_stack *lst);
 t_stack	*stack_last(t_stack *lst);
 t_chunk	*find_n_minimums(t_stack *stack, int n);
 int		find_x_index(int value, t_stack *stack);
+
+/**	chunks	*/
+void	chunk_update_moves(t_chunk *chunk, t_stack *stack);
+t_chunk	*create_chunk(t_stack *stack);
+void	push_chunk(t_chunk *chunk, t_stack *stack_a, t_stack *stack_b);
+void	free_chunk(t_chunk *chunk);
 
 #endif

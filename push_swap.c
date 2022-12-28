@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/23 17:23:46 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 02:07:24 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
 
-	while (stack->next)
+	while (stack)
 	{
 		tmp = stack;
 		stack = stack->next;
