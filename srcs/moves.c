@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 02:05:46 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 12:28:21 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	push(t_stack **origin, t_stack **dest, char move)
 	}
 	else
 		tmp->next = NULL;
-	*dest = tmp;
+	(*dest) = tmp;
 	if ((*origin)->next != NULL)
 	{
 		tmp = (*origin)->next;

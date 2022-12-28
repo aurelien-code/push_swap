@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 02:07:24 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 12:34:12 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,24 @@ void	free_stack(t_stack *stack)
 	}
 	if (stack)
 		free(stack);
+}
+
+void	pprint_stackss(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_printf("######	STACK_A		######\n");
+	while (stack_a)
+	{
+		ft_printf("###	%d		###\n", stack_a->value);
+		stack_a = stack_a->next;
+	}
+	ft_printf("######	END_STACK_A	######\n\n");
+	ft_printf("******	STACK_B		******\n");
+	while (stack_b)
+	{
+		ft_printf("***	%d		***\n", stack_b->value);
+		stack_b = stack_b->next;
+	}
+	ft_printf("******	END_STACK_B	******\n");
 }
 
 int	main(int argc, char **argv)
@@ -51,7 +69,6 @@ int	main(int argc, char **argv)
 			head_a = sort_medium_stack(head_a, head_b);
 		else if (stack_size(head_a) >= 6 && !is_stack_sorted(head_a))
 			head_a = sort_big_stack(head_a, head_b);
-		//print_stack(head_a);
 		free_stack(head_a);
 		free_stack(head_b);
 	}

@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 02:07:58 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 02:08:29 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 12:47:08 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_chunk	*create_chunk(t_stack *stack)
 	return (chunk);
 }
 
-void	push_chunk(t_chunk *chunk, t_stack *stack_a, t_stack *stack_b)
+void	push_chunk(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b)
 {
 	int	moves_count;
 
@@ -49,18 +49,17 @@ void	push_chunk(t_chunk *chunk, t_stack *stack_a, t_stack *stack_b)
 		if (chunk->r_moves < chunk->rr_moves)
 		{
 			while (++moves_count < chunk->r_moves)
-				rotate(&stack_a, 'a');
+				rotate(stack_a, 'a');
 		}
 		else
 		{
 			while (++moves_count < chunk->rr_moves)
-				reverse_rotate(&stack_a, 'a');
+				reverse_rotate(stack_a, 'a');
 		}
-		push(&stack_a, &stack_b, 'b');
+		push(stack_a, stack_b, 'b');
 		chunk = chunk->next;
-		chunk_update_moves(chunk, stack_a);
+		chunk_update_moves(chunk, *stack_a);
 	}
-	print_stack(stack_b);
 }
 
 void	free_chunk(t_chunk *chunk)

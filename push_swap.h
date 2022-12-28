@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 02:09:45 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 12:46:53 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ int		find_x_index(int value, t_stack *stack);
 /**	chunks	*/
 void	chunk_update_moves(t_chunk *chunk, t_stack *stack);
 t_chunk	*create_chunk(t_stack *stack);
-void	push_chunk(t_chunk *chunk, t_stack *stack_a, t_stack *stack_b);
+void	push_chunk(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b);
 void	free_chunk(t_chunk *chunk);
-
+void	pprint_stackss(t_stack *stack_a, t_stack *stack_b);
+void	free_stack(t_stack *stack);
 #endif

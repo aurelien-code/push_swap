@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 02:12:55 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/28 12:51:23 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,16 @@ t_stack	*sort_big_stack(t_stack *stack_a, t_stack *stack_b)
 
 	i = 0;
 	total_chunks = stack_size(stack_a) / 5 + 1;
-	while (i < total_chunks)
+	while (i < total_chunks - 1)
 	{
 		chunk = create_chunk(stack_a);
-		push_chunk(chunk, stack_a, stack_b);
+		push_chunk(chunk, &stack_a, &stack_b);
+		if (stack_size(stack_a) < 4)
+			stack_a = sort_small_stack(stack_a);
 		free_chunk(chunk);
 		i++;
 	}
+	while (stack_size(stack_b) > 1)
+		push(&stack_b, &stack_a, 'a');
 	return (stack_a);
 }
