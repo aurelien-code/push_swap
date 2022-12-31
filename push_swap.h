@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 12:46:53 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/30 17:06:35 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # endif
 
 # define ERROR_MSG "Error\n"
-
+# define ABS_INT_MIN 2147483648
 /** 
 *	STRUCTS
 */

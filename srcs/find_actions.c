@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:05:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 02:02:26 by aumarin          ###   ########.fr       */
+/*   Updated: 2022/12/31 14:44:40 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_chunk	*find_n_minimums(t_stack *stack, int n)
 	while (++i < n)
 	{
 		stack = stack_head;
-		n_min = 2147483648;			
+		n_min = ABS_INT_MIN;
 		while (stack)
 		{
 			if (!n_min && !is_in_chunk(stack->value, h_mins))
