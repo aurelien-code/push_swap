@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/20 09:56:56 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 00:47:20 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,11 @@ void	print_stack(t_stack *head)
 	i = 0;
 	if (!head)
 		return ;
-	while (head->next != NULL)
+	while (head)
 	{
-		ft_printf("->	%d\n", head->value);
+		ft_printf("val = %d ;", head->value);
+		ft_printf(" idx = %d\n", head->sorted_index);
 		head = head->next;
 		i++;
 	}
-	if (head->value)
-		ft_printf("->	%d\n", head->value);
 }

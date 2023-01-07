@@ -6,16 +6,12 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 17:03:55 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/28 12:28:21 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 01:40:46 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-	Swap the first 2 elements at the top of stack.
-	Do nothing if there is only one or no elements
-*/
 void	swap(t_stack **stack, char move)
 {
 	int	tmp;
@@ -33,6 +29,8 @@ void	rotate(t_stack	**stack, char move)
 	t_stack	*last;
 	t_stack	*second;
 
+	if (stack_size(*stack) <= 1)
+		return ;
 	last = stack_last(*stack);
 	second = (*stack)->next;
 	(*stack)->next = NULL;
@@ -47,6 +45,8 @@ void	reverse_rotate(t_stack **stack, char move)
 {
 	t_stack	*last;
 
+	if (stack_size(*stack) <= 1)
+		return ;
 	last = stack_last(*stack);
 	last->next = *stack;
 	while ((*stack)->next != last)
@@ -64,6 +64,7 @@ void	push(t_stack **origin, t_stack **dest, char move)
 	if (!tmp)
 		return ;
 	tmp->value = (*origin)->value;
+	tmp->sorted_index = (*origin)->sorted_index;
 	if (*dest)
 	{
 		tmp->next = *dest;

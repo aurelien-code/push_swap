@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 02:07:27 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/15 14:47:12 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 02:52:53 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ int	check_duplicate(int argc, char **argv)
 	int	i;
 	int	j;
 
-	i = 1;
-	j = 1;
+	i = 0;
+	j = 0;
 	while (i < argc && argv[i])
 	{
-		while (i + j < argc && argv[i + j])
+		j = 0;
+		while (argv[j])
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[i + j]))
+			if (j != i && ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);
 			j++;
 		}

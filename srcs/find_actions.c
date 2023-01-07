@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:05:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/31 14:44:40 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/06 22:31:39 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,6 @@ int	find_minimum(t_stack *stack)
 	return (min);
 }
 
-int	find_minimum_index(t_stack *stack)
-{
-	int	min;
-	int	index;
-
-	min = find_minimum(stack);
-	index = 0;
-	while (stack->next)
-	{
-		if (stack->value == min)
-			return (index);
-		index++;
-		stack = stack->next;
-	}
-	return (-1);
-}
-
 int	is_in_chunk(int nbr, t_chunk *chunk)
 {
 	while (chunk)
@@ -55,13 +38,9 @@ int	is_in_chunk(int nbr, t_chunk *chunk)
 	return (0);
 }
 
-/**
- * BUG : bug si 0 fait partie du minimum
-*/
 t_chunk	*find_n_minimums(t_stack *stack, int n)
 {
 	t_chunk		*mins;
-	t_chunk		*h_mins;
 	long		n_min;
 	t_stack		*stack_head;
 	int			i;
@@ -69,31 +48,22 @@ t_chunk	*find_n_minimums(t_stack *stack, int n)
 	i = -1;
 	stack_head = stack;
 	mins = ft_calloc(1, sizeof(t_chunk));
-	if (!mins)
-		return (NULL);
-	h_mins = mins;
-	while (++i < n)
+	while (++i < n && mins)
 	{
 		stack = stack_head;
 		n_min = ABS_INT_MIN;
 		while (stack)
 		{
-			if (!n_min && !is_in_chunk(stack->value, h_mins))
-				n_min = stack->value;
-			else if (stack->value < n_min && !is_in_chunk(stack->value, h_mins))
+			if (stack->value < n_min && !is_in_chunk(stack->value, mins))
 				n_min = stack->value;
 			stack = stack->next;
 		}
-		mins->value = n_min;
-		if (i + 1 < n)
-		{
-			mins->next = ft_calloc(1, sizeof(t_chunk));
-			if (!mins->next)
-				return (NULL);
-			mins = mins->next;
-		}
+		if (i != 0)
+			mins = new_elem(mins, n_min);
+		else
+			mins->value = n_min;
 	}
-	return (h_mins);
+	return (mins);
 }
 
 int	find_x_index(int value, t_stack *stack)

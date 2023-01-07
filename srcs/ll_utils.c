@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 18:40:11 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/14 12:10:04 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 00:45:40 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,28 @@ int	stack_size(t_stack *lst)
 		i++;
 	}
 	return (i);
+}
+
+
+t_stack	*set_sorted_idx(t_stack *stack, t_chunk *chunk)
+{
+	t_stack	*head;
+	int		i;
+
+	i = 0;
+	head = stack;
+	while (chunk)
+	{
+		stack = head;
+		while (stack)
+		{
+			if (stack->value == chunk->value)
+				stack->sorted_index = i;
+			stack = stack->next;
+		}
+		i++;
+		chunk = chunk->next;
+	}
+	stack = head;
+	return (stack);
 }

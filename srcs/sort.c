@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 02:29:39 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/30 17:54:28 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 02:16:38 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_stack	*sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 			push(&stack_a, &stack_b, 'b');
 			min = find_minimum(stack_a);
 		}
-		else if (find_minimum_index(stack_a) > 3)
+		else if (find_x_index(min, stack_a) > 3)
 			reverse_rotate(&stack_a, 'a');
 		else
 			rotate(&stack_a, 'a');
@@ -70,22 +70,28 @@ t_stack	*sort_medium_stack(t_stack *stack_a, t_stack *stack_b)
 
 t_stack	*sort_big_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	int		total_chunks;
 	t_chunk	*chunk;
+	int		size;
 	int		i;
 
-	i = 0;
-	total_chunks = stack_size(stack_a) / 5 + 1;
-	while (i < total_chunks - 1)
+	chunk = find_n_minimums(stack_a, stack_size(stack_a));
+	stack_a = set_sorted_idx(stack_a, chunk);
+	i = 1;
+	while (!is_stack_sorted(stack_a))
 	{
-		chunk = create_chunk(stack_a);
-		push_chunk(chunk, &stack_a, &stack_b);
-		if (stack_size(stack_a) < 4)
-			stack_a = sort_small_stack(stack_a);
-		free_chunk(chunk);
-		i++;
+		size = stack_size(stack_a);
+		while (size > 0)
+		{
+			if (stack_a->sorted_index & i)
+				rotate(&stack_a, 'a');
+			else
+				push(&stack_a, &stack_b, 'b');
+			size--;
+		}
+		i = i << 1;
+		while (stack_size(stack_b) > 1)
+			push(&stack_b, &stack_a, 'a');
 	}
-	while (stack_size(stack_b) > 1)
-		push(&stack_b, &stack_a, 'a');
+	free_chunk(chunk);
 	return (stack_a);
 }

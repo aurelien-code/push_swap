@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/30 17:06:35 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/06 22:31:47 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				sorted_index;
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }	t_stack;
@@ -54,8 +55,6 @@ typedef struct s_stack
 typedef struct s_chunk
 {
 	int				value;
-	int				r_moves;
-	int				rr_moves;
 	struct s_chunk	*next;
 }	t_chunk;
 
@@ -69,7 +68,6 @@ t_stack	*init_stack(int size, char **numbers);
 void	print_stack(t_stack *lst);
 int		is_stack_sorted(t_stack *stack);
 int		find_minimum(t_stack *stack);
-int		find_minimum_index(t_stack *stack);
 int		is_stack_sorted(t_stack *stack);
 
 /**	moves	*/
@@ -89,10 +87,11 @@ t_chunk	*find_n_minimums(t_stack *stack, int n);
 int		find_x_index(int value, t_stack *stack);
 
 /**	chunks	*/
-void	chunk_update_moves(t_chunk *chunk, t_stack *stack);
-t_chunk	*create_chunk(t_stack *stack);
-void	push_chunk(t_chunk *chunk, t_stack **stack_a, t_stack **stack_b);
+t_chunk	*chunk_last(t_chunk *chunk);
+t_chunk	*new_elem(t_chunk *chunk, int value);
 void	free_chunk(t_chunk *chunk);
 void	pprint_stackss(t_stack *stack_a, t_stack *stack_b);
 void	free_stack(t_stack *stack);
+t_stack	*set_sorted_idx(t_stack *stack, t_chunk *chunk);
+void	pprint_stackss(t_stack *stack_a, t_stack *stack_b);
 #endif

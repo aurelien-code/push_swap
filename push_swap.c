@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2022/12/30 20:05:16 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 02:54:22 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 	head_b = NULL;
 	head_a = NULL;
 	if (argc < 2)
-		return (1);
+		return (0);
 	else if (!is_argv_valid(argc, argv))
 		ft_putstr_fd(ERROR_MSG, STDERR);
 	else
@@ -62,7 +62,6 @@ int	main(int argc, char **argv)
 		head_b = ft_calloc(1, sizeof(t_stack));
 		if (!head_a || !head_b)
 			return (1);
-		head_b->next = NULL;
 		if (stack_size(head_a) < 4 && !is_stack_sorted(head_a))
 			head_a = sort_small_stack(head_a);
 		else if (stack_size(head_a) < 6 && !is_stack_sorted(head_a))
