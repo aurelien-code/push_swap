@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2023/01/06 22:31:47 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 03:14:45 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 
 # define ERROR_MSG "Error\n"
 # define ABS_INT_MIN 2147483648
+
 /** 
 *	STRUCTS
 */
@@ -62,36 +63,41 @@ typedef struct s_chunk
  *	PROTOTYPES 
  */
 
-/**	srcs	*/
-int		is_argv_valid(int argc, char **argv);
-t_stack	*init_stack(int size, char **numbers);
-void	print_stack(t_stack *lst);
-int		is_stack_sorted(t_stack *stack);
-int		find_minimum(t_stack *stack);
+/*	checker.c */
 int		is_stack_sorted(t_stack *stack);
 
-/**	moves	*/
+/*	chunk.c */
+t_chunk	*chunk_last(t_chunk *chunk);
+t_chunk	*new_elem(t_chunk *chunk, int value);
+void	free_chunk(t_chunk *chunk);
+
+/*	find_actions.c */
+int		find_minimum(t_stack *stack);
+t_chunk	*find_n_minimums(t_stack *stack, int n);
+int		find_x_index(int value, t_stack *stack);
+
+/*	ll_utils.c */
+t_stack	*stack_last(t_stack *lst);
+int		stack_size(t_stack *lst);
+t_stack	*set_sorted_idx(t_stack *stack, t_chunk *chunk);
+
+/*	moves.c */
 void	swap(t_stack **stack, char move);
 void	rotate(t_stack	**stack, char move);
 void	reverse_rotate(t_stack **stack, char move);
 void	push(t_stack **origin, t_stack **dest, char move);
 
-/**	sort	*/
+/*	parser.c */
+int		is_argv_valid(int argc, char **argv);
+
+/*	sort.c */
 t_stack	*sort_small_stack(t_stack *stack_a);
 t_stack	*sort_medium_stack(t_stack *stack_a, t_stack *stack_b);
 t_stack	*sort_big_stack(t_stack *stack_a, t_stack *stack_b);
 
-int		stack_size(t_stack *lst);
-t_stack	*stack_last(t_stack *lst);
-t_chunk	*find_n_minimums(t_stack *stack, int n);
-int		find_x_index(int value, t_stack *stack);
-
-/**	chunks	*/
-t_chunk	*chunk_last(t_chunk *chunk);
-t_chunk	*new_elem(t_chunk *chunk, int value);
-void	free_chunk(t_chunk *chunk);
-void	pprint_stackss(t_stack *stack_a, t_stack *stack_b);
+/*	stack_manager.c */
 void	free_stack(t_stack *stack);
-t_stack	*set_sorted_idx(t_stack *stack, t_chunk *chunk);
-void	pprint_stackss(t_stack *stack_a, t_stack *stack_b);
+t_stack	*init_stack(int size, char **numbers);
+void	print_stack(t_stack *lst);
+
 #endif

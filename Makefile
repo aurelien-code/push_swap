@@ -6,7 +6,7 @@
 #    By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 19:14:40 by aumarin           #+#    #+#              #
-#    Updated: 2022/12/28 02:08:45 by aumarin          ###   ########.fr        #
+#    Updated: 2023/01/07 03:14:12 by aumarin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC		= 	push_swap.c \
 			srcs/chunk.c
 
 OBJ		=	$(SRC:.c=.o)
-C_FLAG	=	-Wall -Wextra -Werror -g3
+C_FLAG	=	-Wall -Wextra -Werror
 CC		=	gcc
 
 LIBFT_DIR = ./libft/

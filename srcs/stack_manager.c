@@ -6,11 +6,39 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 19:47:01 by aumarin           #+#    #+#             */
-/*   Updated: 2023/01/07 00:47:20 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 03:06:02 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	while (stack)
+	{
+		tmp = stack;
+		stack = stack->next;
+		if (tmp)
+			free(tmp);
+	}
+	if (stack)
+		free(stack);
+}
+
+void	free_split(char **splitted)
+{
+	int	i;
+
+	i = -1;
+	while (splitted[++i])
+		free(splitted[i]);
+	if (splitted[i])
+		free(splitted[i]);
+	if (splitted)
+		free(splitted);
+}
 
 t_stack	*new_stack_elem(t_stack *head, int value)
 {
@@ -28,19 +56,6 @@ t_stack	*new_stack_elem(t_stack *head, int value)
 	if (!head)
 		head = elem;
 	return (elem);
-}
-
-void	free_split(char **splitted)
-{
-	int	i;
-
-	i = -1;
-	while (splitted[++i])
-		free(splitted[i]);
-	if (splitted[i])
-		free(splitted[i]);
-	if (splitted)
-		free(splitted);
 }
 
 t_stack	*init_stack(int argc, char **argv)
@@ -83,3 +98,4 @@ void	print_stack(t_stack *head)
 		i++;
 	}
 }
+
