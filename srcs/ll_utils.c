@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 18:40:11 by aumarin           #+#    #+#             */
-/*   Updated: 2023/01/07 00:45:40 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 02:57:40 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	stack_size(t_stack *lst)
 	}
 	return (i);
 }
-
 
 t_stack	*set_sorted_idx(t_stack *stack, t_chunk *chunk)
 {
