@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:05:41 by aumarin           #+#    #+#             */
-/*   Updated: 2023/01/06 22:31:39 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 16:42:48 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ t_chunk	*find_n_minimums(t_stack *stack, int n)
 
 	i = -1;
 	stack_head = stack;
-	mins = ft_calloc(1, sizeof(t_chunk));
-	while (++i < n && mins)
+	mins = NULL;
+	while (++i < n)
 	{
 		stack = stack_head;
 		n_min = ABS_INT_MIN;
@@ -58,10 +58,7 @@ t_chunk	*find_n_minimums(t_stack *stack, int n)
 				n_min = stack->value;
 			stack = stack->next;
 		}
-		if (i != 0)
-			mins = new_elem(mins, n_min);
-		else
-			mins->value = n_min;
+		mins = new_elem(mins, n_min);
 	}
 	return (mins);
 }
