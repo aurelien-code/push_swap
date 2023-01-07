@@ -6,7 +6,7 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:42:30 by aumarin           #+#    #+#             */
-/*   Updated: 2023/01/07 03:14:45 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/07 03:15:43 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,5 @@ t_stack	*sort_big_stack(t_stack *stack_a, t_stack *stack_b);
 /*	stack_manager.c */
 void	free_stack(t_stack *stack);
 t_stack	*init_stack(int size, char **numbers);
-void	print_stack(t_stack *lst);
 
 #endif
