@@ -6,11 +6,23 @@
 /*   By: aumarin <aumarin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:16:41 by aumarin           #+#    #+#             */
-/*   Updated: 2023/01/07 03:05:19 by aumarin          ###   ########.fr       */
+/*   Updated: 2023/01/10 00:08:43 by aumarin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_stacks(t_stack *head_a, t_stack *head_b)
+{
+	if (stack_size(head_a) < 4 && !is_stack_sorted(head_a))
+		head_a = sort_small_stack(head_a);
+	else if (stack_size(head_a) < 6 && !is_stack_sorted(head_a))
+		head_a = sort_medium_stack(head_a, head_b);
+	else if (stack_size(head_a) >= 6 && !is_stack_sorted(head_a))
+		head_a = sort_big_stack(head_a, head_b);
+	free_stack(head_a);
+	free_stack(head_b);
+}
 
 int	main(int argc, char **argv)
 {
@@ -26,17 +38,15 @@ int	main(int argc, char **argv)
 	else
 	{
 		head_a = init_stack(argc, argv);
-		head_b = ft_calloc(1, sizeof(t_stack));
-		if (!head_a || !head_b)
+		if (!head_a)
 			return (1);
-		if (stack_size(head_a) < 4 && !is_stack_sorted(head_a))
-			head_a = sort_small_stack(head_a);
-		else if (stack_size(head_a) < 6 && !is_stack_sorted(head_a))
-			head_a = sort_medium_stack(head_a, head_b);
-		else if (stack_size(head_a) >= 6 && !is_stack_sorted(head_a))
-			head_a = sort_big_stack(head_a, head_b);
-		free_stack(head_a);
-		free_stack(head_b);
+		head_b = ft_calloc(1, sizeof(t_stack));
+		if (!head_b)
+		{
+			free_stack(head_a);
+			return (1);
+		}
+		sort_stacks(head_a, head_b);
 	}
 	return (0);
 }
